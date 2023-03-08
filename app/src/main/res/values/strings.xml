@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MAPD721_T1_ChunFungSuen</string>
+    <string name="broadcast_intent_filter_chat_bot_reply">com.cfs.bot.mapd721_t1_chunfungsuen.CHAT_BOT_REPLY</string>
+    <string name="chat_bot_reply_key_message">message</string>
 </resources>
