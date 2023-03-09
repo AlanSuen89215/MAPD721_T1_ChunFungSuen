@@ -26,13 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-        <receiver android:name="com.cfs.bot.mapd721_t1_chunfungsuen.MainActivity$ChatBotBroadcastReceiver"
-            android:exported="false" >
-            <intent-filter>
-                <action android:name="com.cfs.bot.mapd721_t1_chunfungsuen.CHAT_BOT_REPLY" />
-            </intent-filter>
-        </receiver>
     </application>
 
 </manifest>

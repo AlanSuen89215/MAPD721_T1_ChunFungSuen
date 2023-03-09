@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -31,19 +32,44 @@ public class MainActivity extends AppCompatActivity {
 
         context = this;
 
-        // DEBUG
-        chatMessageList.add("Hello");
+        chatBotBroadcastReceiver = new ChatBotBroadcastReceiver(onReceiveChatBotMessageBroadcastListener);
 
+        ((Button) findViewById(R.id.btn_generate_msg))
+                .setOnClickListener(btnGenerateMessageOnClickListener);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(chatBotBroadcastReceiver);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        IntentFilter intentFilter = new IntentFilter(
+                getResources()
+                        .getString(R.string.broadcast_intent_filter_chat_bot_reply)
+        );
+        registerReceiver(chatBotBroadcastReceiver, intentFilter);
+    }
+
+    private OnReceiveChatBotMessageBroadcastListener onReceiveChatBotMessageBroadcastListener = new OnReceiveChatBotMessageBroadcastListener() {
+
+        @Override
+        public void onReceive(String message) {
+            chatMessageList.add(message);
+            updateChatMessageListView();
+        }
+    };
+
+    private void updateChatMessageListView() {
         chatMessageListView = (ListView) findViewById(R.id.chat_message_list_view);
         chatMessageListView.setAdapter(new ChatMessageListViewAdapter(
                 this,
                 android.R.layout.simple_list_item_1,
                 chatMessageList
         ));
-        chatBotBroadcastReceiver = new ChatBotBroadcastReceiver();
-
-        ((Button) findViewById(R.id.btn_generate_msg))
-                .setOnClickListener(btnGenerateMessageOnClickListener);
     }
 
     private View.OnClickListener btnGenerateMessageOnClickListener = new View.OnClickListener() {
@@ -67,10 +93,25 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    public interface OnReceiveChatBotMessageBroadcastListener {
+        void onReceive(String message);
+    }
+
     public static class ChatBotBroadcastReceiver extends BroadcastReceiver {
+        private OnReceiveChatBotMessageBroadcastListener listener;
+
+        public ChatBotBroadcastReceiver(OnReceiveChatBotMessageBroadcastListener listener) {
+            this.listener = listener;
+        }
+
         @Override
         public void onReceive(Context context, Intent intent) {
-
+            Bundle data = intent.getExtras();
+            String message = data.getString(
+                    context
+                            .getString(R.string.chat_bot_reply_key_message)
+            );
+            listener.onReceive(message);
         }
     }
 }
