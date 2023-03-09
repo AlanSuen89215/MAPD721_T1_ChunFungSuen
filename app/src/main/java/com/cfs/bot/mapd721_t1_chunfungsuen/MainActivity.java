@@ -36,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
         ((Button) findViewById(R.id.btn_generate_msg))
                 .setOnClickListener(btnGenerateMessageOnClickListener);
+
+        ((Button) findViewById(R.id.btn_stop_service))
+                .setOnClickListener(btnStopServiceOnClickListener);
     }
 
     @Override
@@ -87,6 +90,18 @@ public class MainActivity extends AppCompatActivity {
             Bundle data = new Bundle();
             data.putInt(ChatBotService.CMD, ChatBotService.CMD_GENERATE_MESSAGE);
             data.putString(ChatBotService.KEY_USER_NAME, userName);
+            Intent intent = new Intent(context, ChatBotService.class);
+            intent.putExtras(data);
+            startService(intent);
+        }
+    };
+
+    private View.OnClickListener btnStopServiceOnClickListener = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View view) {
+            Bundle data = new Bundle();
+            data.putInt(ChatBotService.CMD, ChatBotService.CMD_STOP_SERVICE);
             Intent intent = new Intent(context, ChatBotService.class);
             intent.putExtras(data);
             startService(intent);
