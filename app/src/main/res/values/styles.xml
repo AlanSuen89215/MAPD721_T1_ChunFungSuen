@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="chat_message_background_style">
+        <item name="android:layout_marginStart">@dimen/chat_message_background_marginStart</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/chat_message_background_height</item>
+        <item name="android:scaleType">fitStart</item>
+    </style>
+
+    <style name="chat_message_style">
+        <item name="android:layout_marginStart">@dimen/chat_message_marginStart</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/chat_message_textSize</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="button_style">
+        <item name="android:layout_width">@dimen/button_width</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:backgroundTint">@color/button_color</item>
+    </style>
+
+    <style name="chat_message_list_view_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:scrollbars">vertical</item>
+    </style>
+
+    <style name="user_edit_text_style">
+        <item name="android:layout_width">@dimen/user_edit_text_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/user_edit_text_textSize</item>
+    </style>
+
+    <style name="user_label_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/user_label_marginTop</item>
+        <item name="android:textSize">@dimen/user_label_textSize</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+</resources>

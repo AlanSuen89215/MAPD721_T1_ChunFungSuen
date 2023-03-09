@@ -7,23 +7,15 @@
 
     <ImageView
         android:id="@+id/chat_message_background"
-        android:layout_width="wrap_content"
-        android:layout_height="160dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        style="@style/chat_message_background_style"
         app:srcCompat="@drawable/chat_fill"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <TextView
         android:id="@+id/chat_message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:textSize="20sp"
-        android:textColor="@color/white"
+        style="@style/chat_message_style"
         app:layout_constraintStart_toStartOf="@id/chat_message_background"
         app:layout_constraintTop_toTopOf="@id/chat_message_background"
         app:layout_constraintBottom_toBottomOf="@id/chat_message_background" />

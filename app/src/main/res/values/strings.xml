@@ -3,4 +3,6 @@
     <string name="broadcast_intent_filter_chat_bot_reply">com.cfs.bot.mapd721_t1_chunfungsuen.CHAT_BOT_REPLY</string>
     <string name="chat_bot_reply_key_message">message</string>
     <string name="user_label_text">Name:</string>
+    <string name="btn_generate_msg_text">Generate Message</string>
+    <string name="btn_stop_service_text">Stop Service</string>
 </resources>

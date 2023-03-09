@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="chat_message_background_marginStart">16dp</dimen>
+    <dimen name="chat_message_background_height">120dp</dimen>
+    <dimen name="chat_message_marginStart">40dp</dimen>
+    <dimen name="chat_message_textSize">20sp</dimen>
+    <dimen name="button_width">200dp</dimen>
+    <dimen name="button_height">56dp</dimen>
+    <dimen name="user_edit_text_width">120dp</dimen>
+    <dimen name="user_edit_text_textSize">18sp</dimen>
+    <dimen name="user_label_textSize">18sp</dimen>
+    <dimen name="user_label_marginTop">16dp</dimen>
+</resources>
