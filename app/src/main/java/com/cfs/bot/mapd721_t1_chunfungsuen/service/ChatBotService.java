@@ -32,8 +32,8 @@ public class ChatBotService extends Service {
 
         notificationMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationDecorator = new NotificationDecorator(this, notificationMgr);
-        /*PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
-        wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);*/
+        PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
+        wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
     }
 
     @Override
@@ -42,10 +42,10 @@ public class ChatBotService extends Service {
         if (intent != null) {
             Bundle data = intent.getExtras();
             handleData(data);
-            /*if (!wakeLock.isHeld()) {
+            if (!wakeLock.isHeld()) {
                 Log.v(TAG, "acquiring wake lock");
                 wakeLock.acquire();
-            }*/
+            }
         }
 
         return START_STICKY;
@@ -54,8 +54,8 @@ public class ChatBotService extends Service {
     @Override
     public void onDestroy() {
         notificationMgr.cancelAll();
-        /*Log.v(TAG, "releasing wake lock");
-        wakeLock.release();*/
+        Log.v(TAG, "releasing wake lock");
+        wakeLock.release();
         super.onDestroy();
     }
 

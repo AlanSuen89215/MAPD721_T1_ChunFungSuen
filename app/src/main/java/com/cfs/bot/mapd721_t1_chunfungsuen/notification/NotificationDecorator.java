@@ -13,9 +13,6 @@ import android.util.Log;
 
 import com.cfs.bot.mapd721_t1_chunfungsuen.MainActivity;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class NotificationDecorator {
     private static final String TAG = "NotificationDecorator";
     private String channelId = "chat_bot_channel";
@@ -37,10 +34,6 @@ public class NotificationDecorator {
     }
 
     public void displayExpandableNotification(String title, String contentText) {
-        /*contentText = contentText + "\n"
-                + "Chat Bot\n"
-                + (new SimpleDateFormat("MM/dd/yyyy hh:mm:ss")).format(new Date());*/
-
         Intent intent = new Intent(context, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
                 Intent.FLAG_ACTIVITY_SINGLE_TOP);
